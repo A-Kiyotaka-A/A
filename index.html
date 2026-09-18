@@ -3,33 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الشافاشة - تشفير</title>
+    <title>A-K-A | تشفير</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1 data-text="🕵️ الشافاشة">🕵️ الشافاشة</h1>
-        <p class="subtitle">[ نظام التشفير غير المرئي - الإصدار 2.0 ]</p>
-
-        <textarea id="inputText" placeholder="> أدخل الرسالة السرية هنا..."></textarea>
-        <button id="encryptBtn">[ تشفير الرسالة ]</button>
-
-        <div id="resultSection" class="hidden">
-            <h3 class="terminal-text">> الرسالة المشفرة:</h3>
-            <div id="outputText" class="output-box"></div>
-            
-            <div class="button-group">
-                <button id="copyTextBtn">[ نسخ الرسالة ]</button>
-                <button id="copyLinkBtn">[ نسخ رابط الفك ]</button>
-            </div>
-            
-            <button id="newEncryptBtn" style="margin-top: 15px;">[ رسالة جديدة ]</button>
+        <div class="header">
+            <h1>A-K-A</h1>
+            <p class="subtitle">نظام التشفير غير المرئي</p>
         </div>
 
-        <div class="status-bar">
-            اللغات المدعومة: العربية | English | 日本語 | 中文 | 한국어 | Français | Deutsch | Español | Русский | हिन्दी
+        <div class="main-content">
+            <div class="input-section">
+                <label for="inputText">أدخل رسالتك:</label>
+                <textarea id="inputText" placeholder="اكتب رسالتك هنا..."></textarea>
+                <button id="encryptBtn" class="btn-primary">تشفير الرسالة</button>
+            </div>
+
+            <div id="resultSection" class="result-section hidden">
+                <label>الرسالة المشفرة:</label>
+                <div id="outputText" class="output-box"></div>
+                
+                <div class="button-group">
+                    <button id="copyTextBtn" class="btn-secondary">نسخ الرسالة</button>
+                    <button id="openDecodeBtn" class="btn-secondary">فتح نافذة الفك</button>
+                </div>
+                
+                <button id="newEncryptBtn" class="btn-tertiary">رسالة جديدة</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>يدعم: العربية | English | 日本語 | 中文 | 한국어 | وأكثر</p>
         </div>
     </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
     <script src="encrypt.js"></script>
 </body>
 </html>

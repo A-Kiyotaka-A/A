@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const decryptedSection = document.getElementById('decryptedSection');
     const outputDecrypted = document.getElementById('outputDecrypted');
     const newMessageBtn = document.getElementById('newMessageBtn');
+    const copyDecryptedBtn = document.getElementById('copyDecryptedBtn');
 
     const ZWSP = '\u200B'; 
     const ZWNJ = '\u200C'; 
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (binary.length === 0 || binary.length % 8 !== 0) {
-            return 'خطأ: النص المشفر غير صالح أو تالف.';
+            return '> خطأ: النص المشفر غير صالح أو تالف.';
         }
 
         const bytes = new Uint8Array(binary.length / 8);
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     decryptBtn.addEventListener('click', () => {
         const cipher = inputCipher.value;
         if (!cipher.trim()) {
-            alert('الرجاء لصق الرسالة المشفرة أولاً!');
+            alert('> خطأ: الرجاء لصق الرسالة المشفرة أولاً!');
             return;
         }
         
@@ -44,11 +45,20 @@ document.addEventListener('DOMContentLoaded', () => {
         decryptedSection.classList.remove('hidden');
     });
 
-    // زر الرسالة الجديدة
+    // زر رسالة جديدة
     newMessageBtn.addEventListener('click', () => {
         inputCipher.value = '';
         outputDecrypted.textContent = '';
         decryptedSection.classList.add('hidden');
         inputCipher.focus();
+    });
+
+    // زر نسخ الرسالة الأصلية
+    copyDecryptedBtn.addEventListener('click', () => {
+        const text = outputDecrypted.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            copyDecryptedBtn.textContent = '[ تم النسخ ✓ ]';
+            setTimeout(() => copyDecryptedBtn.textContent = '[ نسخ الأصلية ]', 2000);
+        });
     });
 });

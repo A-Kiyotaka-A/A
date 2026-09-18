@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const decryptBtn = document.getElementById('decryptBtn');
     const decryptedSection = document.getElementById('decryptedSection');
     const outputDecrypted = document.getElementById('outputDecrypted');
+    const newMessageBtn = document.getElementById('newMessageBtn');
 
     const ZWSP = '\u200B'; 
     const ZWNJ = '\u200C'; 
@@ -10,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const BOM  = '\uFEFF'; 
 
     function zeroWidthToText(zeroWidth) {
-        // إزالة علامات النهاية
         let clean = zeroWidth.replace(new RegExp(`[${ZWJ}${BOM}]`, 'g'), '');
         
         let binary = '';
@@ -42,5 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const decrypted = zeroWidthToText(cipher);
         outputDecrypted.textContent = decrypted;
         decryptedSection.classList.remove('hidden');
+    });
+
+    // زر الرسالة الجديدة
+    newMessageBtn.addEventListener('click', () => {
+        inputCipher.value = '';
+        outputDecrypted.textContent = '';
+        decryptedSection.classList.add('hidden');
+        inputCipher.focus();
     });
 });

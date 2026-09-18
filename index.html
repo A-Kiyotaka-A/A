@@ -8,17 +8,26 @@
 </head>
 <body>
     <div class="container">
-        <h1>🕵️‍♂️ لغة الشافاشة</h1>
-        <p class="subtitle">اكتب رسالتك لتحويلها إلى لغة غير مرئية تماماً.</p>
+        <h1 data-text="🕵️ الشافاشة">🕵️ الشافاشة</h1>
+        <p class="subtitle">[ نظام التشفير غير المرئي - الإصدار 2.0 ]</p>
 
-        <textarea id="inputText" placeholder="اكتب رسالتك هنا (عربي، إنجليزي، ياباني)..."></textarea>
-        <button id="encryptBtn">تشفير الرسالة ✨</button>
+        <textarea id="inputText" placeholder="> أدخل الرسالة السرية هنا..."></textarea>
+        <button id="encryptBtn">[ تشفير الرسالة ]</button>
 
         <div id="resultSection" class="hidden">
-            <h3>الرسالة المشفرة (غير مرئية):</h3>
-            <div id="outputText" class="output-box">النص فارغ ظاهرياً، قم بنسخه الآن.</div>
-            <button id="copyTextBtn">نسخ الرسالة المشفرة 📋</button>
-            <button id="copyLinkBtn">نسخ رابط فك التشفير 🔗</button>
+            <h3 class="terminal-text">> الرسالة المشفرة:</h3>
+            <div id="outputText" class="output-box"></div>
+            
+            <div class="button-group">
+                <button id="copyTextBtn">[ نسخ الرسالة ]</button>
+                <button id="copyLinkBtn">[ نسخ رابط الفك ]</button>
+            </div>
+            
+            <button id="newEncryptBtn" style="margin-top: 15px;">[ رسالة جديدة ]</button>
+        </div>
+
+        <div class="status-bar">
+            اللغات المدعومة: العربية | English | 日本語 | 中文 | 한국어 | Français | Deutsch | Español | Русский | हिन्दी
         </div>
     </div>
     <script src="encrypt.js"></script>

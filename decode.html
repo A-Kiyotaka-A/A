@@ -8,16 +8,24 @@
 </head>
 <body>
     <div class="container">
-        <h1>🔓 فك تشفير الشافاشة</h1>
-        <p class="subtitle">الصق الرسالة غير المرئية هنا لفك تشفيرها وإظهارها.</p>
+        <h1 data-text="🔓 فك الشافاشة">🔓 فك الشافاشة</h1>
+        <p class="subtitle">[ نظام فك التشفير - الإصدار 2.0 ]</p>
 
-        <textarea id="inputCipher" placeholder="الصق الرسالة المشفرة هنا..."></textarea>
-        <button id="decryptBtn">فك التشفير 🔓</button>
+        <textarea id="inputCipher" placeholder="> الصق الرسالة المشفرة هنا..."></textarea>
+        <button id="decryptBtn">[ فك التشفير ]</button>
 
         <div id="decryptedSection" class="hidden">
-            <h3>الرسالة الأصلية:</h3>
+            <h3 class="terminal-text">> الرسالة الأصلية:</h3>
             <div id="outputDecrypted" class="output-box"></div>
-            <button id="newMessageBtn">رسالة جديدة 🔄</button>
+            
+            <div class="button-group">
+                <button id="copyDecryptedBtn">[ نسخ الأصلية ]</button>
+                <button id="newMessageBtn">[ رسالة جديدة ]</button>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            النظام جاهز - في انتظار البيانات المشفرة...
         </div>
     </div>
     <script src="decrypt.js"></script>

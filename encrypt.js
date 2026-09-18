@@ -5,16 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const outputText = document.getElementById('outputText');
     const copyTextBtn = document.getElementById('copyTextBtn');
     const copyLinkBtn = document.getElementById('copyLinkBtn');
+    const newEncryptBtn = document.getElementById('newEncryptBtn');
 
-    // محارف يونيكود غير المرئية
-    const ZWSP = '\u200B'; // يمثل الرقم 0
-    const ZWNJ = '\u200C'; // يمثل الرقم 1
-    const ZWJ  = '\u200D'; // فاصل نهاية الحرف
-    const BOM  = '\uFEFF'; // علامة نهاية الرسالة
+    const ZWSP = '\u200B';
+    const ZWNJ = '\u200C';
+    const ZWJ  = '\u200D';
+    const BOM  = '\uFEFF';
 
     function textToZeroWidth(text) {
         if (!text) return '';
-        // تحويل النص إلى بايتات UTF-8 (يدعم العربية واليابانية)
         const encoder = new TextEncoder();
         const bytes = encoder.encode(text);
         let binary = '';
@@ -26,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let bit of binary) {
             zeroWidth += (bit === '0') ? ZWSP : ZWNJ;
         }
-        // إضافة علامات النهاية
         zeroWidth += ZWJ + BOM;
         return zeroWidth;
     }
@@ -34,11 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
     encryptBtn.addEventListener('click', () => {
         const text = inputText.value;
         if (!text.trim()) {
-            alert('الرجاء كتابة رسالة أولاً!');
+            alert('> خطأ: الرجاء كتابة رسالة أولاً!');
             return;
         }
         const encrypted = textToZeroWidth(text);
-        outputText.textContent = encrypted || '(النص فارغ ظاهرياً)';
+        outputText.textContent = encrypted || '> (النص فارغ ظاهرياً)';
         resultSection.classList.remove('hidden');
     });
 
@@ -46,18 +44,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const text = inputText.value;
         const encrypted = textToZeroWidth(text);
         navigator.clipboard.writeText(encrypted).then(() => {
-            copyTextBtn.textContent = 'تم النسخ! ✅';
-            setTimeout(() => copyTextBtn.textContent = 'نسخ الرسالة المشفرة 📋', 2000);
+            copyTextBtn.textContent = '[ تم النسخ ✓ ]';
+            setTimeout(() => copyTextBtn.textContent = '[ نسخ الرسالة ]', 2000);
         });
     });
 
     copyLinkBtn.addEventListener('click', () => {
-        // الحصول على رابط صفحة فك التشفير
         const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
         const link = baseUrl + 'decode.html';
         navigator.clipboard.writeText(link).then(() => {
-            copyLinkBtn.textContent = 'تم نسخ الرابط! ✅';
-            setTimeout(() => copyLinkBtn.textContent = 'نسخ رابط فك التشفير 🔗', 2000);
+            copyLinkBtn.textContent = '[ تم النسخ ✓ ]';
+            setTimeout(() => copyLinkBtn.textContent = '[ نسخ رابط الفك ]', 2000);
         });
+    });
+
+    // زر رسالة جديدة
+    newEncryptBtn.addEventListener('click', () => {
+        inputText.value = '';
+        outputText.textContent = '';
+        resultSection.classList.add('hidden');
+        inputText.focus();
     });
 });

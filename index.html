@@ -3,43 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A-K-A | تشفير</title>
+    <title>A-K-A | نظام التشفير</title>
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="theme-toggle">
+        <button id="themeToggle" class="btn-icon">
+            <span id="themeIcon">☀</span>
+        </button>
+    </div>
+
     <div class="container">
-        <div class="header">
+        <header class="header">
             <h1>A-K-A</h1>
-            <p class="subtitle">نظام التشفير غير المرئي</p>
-        </div>
+            <p class="subtitle">نظام التشفير المتقدم</p>
+        </header>
 
-        <div class="main-content">
-            <div class="input-section">
-                <label for="inputText">أدخل رسالتك:</label>
+        <main class="main-content">
+            <section class="input-section">
+                <label for="inputText">أدخل الرسالة</label>
                 <textarea id="inputText" placeholder="اكتب رسالتك هنا..."></textarea>
-                <button id="encryptBtn" class="btn-primary">تشفير الرسالة</button>
-            </div>
+                
+                <div class="options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="enableTimer">
+                        <span>تفعيل المؤقت الزمني</span>
+                    </label>
+                    <div id="timerSection" class="timer-section hidden">
+                        <label for="timerMinutes">المدة (بالدقائق)</label>
+                        <input type="number" id="timerMinutes" min="1" max="1440" value="60">
+                    </div>
+                </div>
 
-            <div id="resultSection" class="result-section hidden">
-                <label>الرسالة المشفرة:</label>
+                <button id="encryptBtn" class="btn-primary">تشفير الرسالة</button>
+            </section>
+
+            <section id="resultSection" class="result-section hidden">
+                <label>الرسالة المشفرة</label>
                 <div id="outputText" class="output-box"></div>
                 
                 <div class="button-group">
                     <button id="copyTextBtn" class="btn-secondary">نسخ الرسالة</button>
-                    <button id="openDecodeBtn" class="btn-secondary">فتح نافذة الفك</button>
+                    <button id="shareBtn" class="btn-secondary">مشاركة مباشرة</button>
                 </div>
                 
                 <button id="newEncryptBtn" class="btn-tertiary">رسالة جديدة</button>
-            </div>
-        </div>
+            </section>
+        </main>
 
-        <div class="footer">
-            <p>يدعم: العربية | English | 日本語 | 中文 | 한국어 | وأكثر</p>
-        </div>
+        <footer class="footer">
+            <p>يدعم جميع اللغات والإيموجيات</p>
+        </footer>
     </div>
 
-    <!-- Toast Notification -->
     <div id="toast" class="toast"></div>
+
+    <div id="shareModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>المشاركة المباشرة</h2>
+            <p class="modal-text">سيتم إنشاء رابط محمي بكود. احتفظ بالكود وأرسله للمستلم.</p>
+            
+            <div class="code-display">
+                <label>كود الوصول</label>
+                <div class="code-box">
+                    <span id="accessCode"></span>
+                    <button id="copyCodeBtn" class="btn-icon-small">نسخ</button>
+                </div>
+            </div>
+
+            <div class="link-display">
+                <label>رابط المشاركة</label>
+                <div class="link-box">
+                    <input type="text" id="shareLink" readonly>
+                    <button id="copyLinkBtn" class="btn-icon-small">نسخ</button>
+                </div>
+            </div>
+
+            <button id="closeModalBtn" class="btn-primary">إغلاق</button>
+        </div>
+    </div>
 
     <script src="encrypt.js"></script>
 </body>

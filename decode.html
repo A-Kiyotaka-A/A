@@ -4,41 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A-K-A | فك التشفير</title>
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>A-K-A</h1>
-            <p class="subtitle">فك تشفير الرسائل</p>
-        </div>
-
-        <div class="main-content">
-            <div class="input-section">
-                <label for="inputCipher">الصق الرسالة المشفرة:</label>
-                <textarea id="inputCipher" placeholder="الصق الرسالة هنا..."></textarea>
-                <button id="decryptBtn" class="btn-primary">فك التشفير</button>
-            </div>
-
-            <div id="decryptedSection" class="result-section hidden">
-                <label>الرسالة الأصلية:</label>
-                <div id="outputDecrypted" class="output-box"></div>
-                
-                <div class="button-group">
-                    <button id="copyDecryptedBtn" class="btn-secondary">نسخ الأصلية</button>
-                    <button id="copyPageLinkBtn" class="btn-secondary">نسخ رابط الصفحة</button>
-                </div>
-                
-                <button id="newMessageBtn" class="btn-tertiary">رسالة جديدة</button>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>النظام جاهز</p>
-        </div>
+    <div class="theme-toggle">
+        <button id="themeToggle" class="btn-icon">
+            <span id="themeIcon">☀</span>
+        </button>
     </div>
 
-    <!-- Toast Notification -->
+    <div class="container">
+        <header class="header">
+            <h1>A-K-A</h1>
+            <p class="subtitle">فك تشفير الرسائل</p>
+        </header>
+
+        <main class="main-content">
+            <div id="codeSection" class="code-section">
+                <label for="accessCodeInput">أدخل كود الوصول</label>
+                <input type="text" id="accessCodeInput" placeholder="الكود المكون من 8 أحرف">
+                <button id="verifyCodeBtn" class="btn-primary">تحقق من الكود</button>
+            </div>
+
+            <div id="decryptSection" class="decrypt-section hidden">
+                <div id="timerDisplay" class="timer-display hidden">
+                    <span>الوقت المتبقي: </span>
+                    <span id="countdown"></span>
+                </div>
+
+                <div id="expiredMessage" class="expired-message hidden">
+                    <p>انتهت صلاحية هذه الرسالة</p>
+                </div>
+
+                <div id="decryptContent">
+                    <label>الرسالة الأصلية</label>
+                    <div id="outputDecrypted" class="output-box"></div>
+                    
+                    <div class="button-group">
+                        <button id="copyDecryptedBtn" class="btn-secondary">نسخ الرسالة</button>
+                        <button id="copyPageLinkBtn" class="btn-secondary">نسخ رابط الصفحة</button>
+                    </div>
+                    
+                    <button id="newMessageBtn" class="btn-tertiary">رسالة جديدة</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>النظام جاهز</p>
+        </footer>
+    </div>
+
     <div id="toast" class="toast"></div>
 
     <script src="decrypt.js"></script>

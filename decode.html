@@ -3,31 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الشافاشة - فك التشفير</title>
+    <title>A-K-A | فك التشفير</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1 data-text="🔓 فك الشافاشة">🔓 فك الشافاشة</h1>
-        <p class="subtitle">[ نظام فك التشفير - الإصدار 2.0 ]</p>
+        <div class="header">
+            <h1>A-K-A</h1>
+            <p class="subtitle">فك تشفير الرسائل</p>
+        </div>
 
-        <textarea id="inputCipher" placeholder="> الصق الرسالة المشفرة هنا..."></textarea>
-        <button id="decryptBtn">[ فك التشفير ]</button>
+        <div class="main-content">
+            <div class="input-section">
+                <label for="inputCipher">الصق الرسالة المشفرة:</label>
+                <textarea id="inputCipher" placeholder="الصق الرسالة هنا..."></textarea>
+                <button id="decryptBtn" class="btn-primary">فك التشفير</button>
+            </div>
 
-        <div id="decryptedSection" class="hidden">
-            <h3 class="terminal-text">> الرسالة الأصلية:</h3>
-            <div id="outputDecrypted" class="output-box"></div>
-            
-            <div class="button-group">
-                <button id="copyDecryptedBtn">[ نسخ الأصلية ]</button>
-                <button id="newMessageBtn">[ رسالة جديدة ]</button>
+            <div id="decryptedSection" class="result-section hidden">
+                <label>الرسالة الأصلية:</label>
+                <div id="outputDecrypted" class="output-box"></div>
+                
+                <div class="button-group">
+                    <button id="copyDecryptedBtn" class="btn-secondary">نسخ الأصلية</button>
+                    <button id="copyPageLinkBtn" class="btn-secondary">نسخ رابط الصفحة</button>
+                </div>
+                
+                <button id="newMessageBtn" class="btn-tertiary">رسالة جديدة</button>
             </div>
         </div>
 
-        <div class="status-bar">
-            النظام جاهز - في انتظار البيانات المشفرة...
+        <div class="footer">
+            <p>النظام جاهز</p>
         </div>
     </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
     <script src="decrypt.js"></script>
 </body>
 </html>

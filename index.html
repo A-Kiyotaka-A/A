@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشافاشة - تشفير</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🕵️‍♂️ لغة الشافاشة</h1>
+        <p class="subtitle">اكتب رسالتك لتحويلها إلى لغة غير مرئية تماماً.</p>
+
+        <textarea id="inputText" placeholder="اكتب رسالتك هنا (عربي، إنجليزي، ياباني)..."></textarea>
+        <button id="encryptBtn">تشفير الرسالة ✨</button>
+
+        <div id="resultSection" class="hidden">
+            <h3>الرسالة المشفرة (غير مرئية):</h3>
+            <div id="outputText" class="output-box">النص فارغ ظاهرياً، قم بنسخه الآن.</div>
+            <button id="copyTextBtn">نسخ الرسالة المشفرة 📋</button>
+            <button id="copyLinkBtn">نسخ رابط فك التشفير 🔗</button>
+        </div>
+    </div>
+    <script src="encrypt.js"></script>
+</body>
+</html>

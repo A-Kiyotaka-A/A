@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشافاشة - فك التشفير</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔓 فك تشفير الشافاشة</h1>
+        <p class="subtitle">الصق الرسالة غير المرئية هنا لفك تشفيرها وإظهارها.</p>
+
+        <textarea id="inputCipher" placeholder="الصق الرسالة المشفرة هنا..."></textarea>
+        <button id="decryptBtn">فك التشفير 🔓</button>
+
+        <div id="decryptedSection" class="hidden">
+            <h3>الرسالة الأصلية:</h3>
+            <div id="outputDecrypted" class="output-box"></div>
+        </div>
+    </div>
+    <script src="decrypt.js"></script>
+</body>
+</html>

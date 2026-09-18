@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const enableTimer = document.getElementById('enableTimer');
     const timerSection = document.getElementById('timerSection');
     const timerMinutes = document.getElementById('timerMinutes');
+    const enableShare = document.getElementById('enableShare');
     const shareModal = document.getElementById('shareModal');
     const accessCode = document.getElementById('accessCode');
     const shareLink = document.getElementById('shareLink');
@@ -102,6 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
         currentEncrypted = textToZeroWidth(JSON.stringify(data));
         outputText.textContent = currentEncrypted || '(النص فارغ ظاهرياً)';
         resultSection.classList.remove('hidden');
+        
+        // إظهار زر المشاركة المباشرة فقط إذا كان مفعل
+        if (enableShare.checked) {
+            shareBtn.classList.remove('hidden');
+        } else {
+            shareBtn.classList.add('hidden');
+        }
+        
         showToast('تم التشفير بنجاح');
     });
 
@@ -117,14 +126,22 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // توليد كود جديد
         currentCode = generateCode();
+        
+        // عرض الكود في النافذة
         accessCode.textContent = currentCode;
 
+        // بناء الرابط
         const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
         const encodedMessage = encodeURIComponent(currentEncrypted);
         const encodedCode = encodeURIComponent(currentCode);
-        shareLink.value = `${baseUrl}decode.html#msg=${encodedMessage}&code=${encodedCode}`;
+        const fullLink = `${baseUrl}decode.html#msg=${encodedMessage}&code=${encodedCode}`;
+        
+        // عرض الرابط في النافذة
+        shareLink.value = fullLink;
 
+        // إظهار النافذة المنبثقة
         shareModal.classList.remove('hidden');
     });
 
@@ -148,6 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         inputText.value = '';
         outputText.textContent = '';
         resultSection.classList.add('hidden');
+        shareBtn.classList.add('hidden');
         currentEncrypted = '';
         currentCode = '';
         inputText.focus();

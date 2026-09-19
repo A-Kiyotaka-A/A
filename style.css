@@ -1,29 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
 
-:root {
-    --bg-primary: #1a1a2e;
-    --bg-secondary: #16213e;
-    --bg-tertiary: #0f3460;
-    --text-primary: #ffffff;
-    --text-secondary: #b0b0b0;
-    --accent: #3a86ff;
-    --accent-hover: #265dcb;
-    --border: #2a2a4e;
-    --success: #10b981;
-    --error: #ef4444;
-}
-
-[data-theme="light"] {
-    --bg-primary: #f8f9fa;
-    --bg-secondary: #ffffff;
-    --bg-tertiary: #e9ecef;
-    --text-primary: #212529;
-    --text-secondary: #6c757d;
-    --accent: #3a86ff;
-    --accent-hover: #265dcb;
-    --border: #dee2e6;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -32,47 +8,23 @@
 
 body {
     font-family: 'Cairo', sans-serif;
-    background: var(--bg-primary);
-    color: var(--text-primary);
+    background: #000000;
+    color: #FFD700;
     min-height: 100vh;
     padding: 20px;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-.theme-toggle {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 100;
-}
-
-.btn-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-    font-size: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-icon:hover {
-    background: var(--accent);
-    color: white;
-    border-color: var(--accent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
-    max-width: 700px;
+    max-width: 600px;
     width: 100%;
-    margin: 0 auto;
-    background: var(--bg-secondary);
-    border-radius: 16px;
+    background: #0a0a0a;
+    border-radius: 12px;
     padding: 40px;
-    border: 1px solid var(--border);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #FFD700;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
 }
 
 .header {
@@ -81,16 +33,18 @@ body {
 }
 
 .header h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     font-weight: 700;
-    color: var(--accent);
+    color: #FFD700;
     margin-bottom: 10px;
-    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    letter-spacing: 3px;
 }
 
 .subtitle {
-    color: var(--text-secondary);
+    color: #FFA500;
     font-size: 1em;
+    font-weight: 600;
 }
 
 .main-content {
@@ -99,44 +53,40 @@ body {
 
 label {
     display: block;
-    margin-bottom: 8px;
-    color: var(--text-secondary);
+    margin-bottom: 10px;
+    color: #FFD700;
     font-weight: 600;
-    font-size: 0.9em;
-}
-
-textarea, input[type="text"], input[type="number"] {
-    width: 100%;
-    padding: 12px 16px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    font-size: 15px;
-    font-family: 'Cairo', sans-serif;
-    margin-bottom: 16px;
-    transition: all 0.3s ease;
+    font-size: 0.95em;
 }
 
 textarea {
+    width: 100%;
     min-height: 150px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #FFD700;
+    background: #000000;
+    color: #FFD700;
+    font-size: 15px;
+    font-family: 'Cairo', sans-serif;
     resize: vertical;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
 }
 
-textarea:focus, input:focus {
+textarea:focus {
     outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.1);
+    border-color: #FFA500;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
 }
 
-textarea::placeholder, input::placeholder {
-    color: var(--text-secondary);
-    opacity: 0.6;
+textarea::placeholder {
+    color: #666;
 }
 
 button {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     border: none;
     border-radius: 8px;
     font-size: 15px;
@@ -148,43 +98,37 @@ button {
 }
 
 .btn-primary {
-    background: var(--accent);
-    color: white;
+    background: #FFD700;
+    color: #000000;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
 }
 
 .btn-primary:hover {
-    background: var(--accent-hover);
-    transform: translateY(-1px);
+    background: #FFA500;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
 }
 
 .btn-secondary {
-    background: var(--bg-tertiary);
-    color: var(--text-primary);
-    border: 1px solid var(--border);
+    background: transparent;
+    color: #FFD700;
+    border: 1px solid #FFD700;
 }
 
 .btn-secondary:hover {
-    background: var(--accent);
-    color: white;
-    border-color: var(--accent);
+    background: #FFD700;
+    color: #000000;
 }
 
 .btn-tertiary {
     background: transparent;
-    color: var(--text-secondary);
-    border: 1px solid var(--border);
+    color: #FFA500;
+    border: 1px solid #333;
 }
 
 .btn-tertiary:hover {
-    background: var(--bg-tertiary);
-    color: var(--text-primary);
-}
-
-.btn-icon-small {
-    width: auto;
-    padding: 6px 12px;
-    font-size: 13px;
-    margin: 0;
+    border-color: #FFD700;
+    color: #FFD700;
 }
 
 .button-group {
@@ -194,56 +138,32 @@ button {
     margin-bottom: 10px;
 }
 
-.options {
-    margin-bottom: 20px;
-}
-
-.checkbox-label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    margin-bottom: 12px;
-}
-
-.checkbox-label input {
-    width: auto;
-    margin: 0;
-}
-
-.timer-section {
-    margin-top: 12px;
-    padding: 12px;
-    background: var(--bg-tertiary);
-    border-radius: 8px;
-}
-
 .result-section {
     margin-top: 30px;
     padding-top: 30px;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid #333;
 }
 
 .output-box {
-    background: var(--bg-primary);
-    padding: 16px;
+    background: #000000;
+    padding: 20px;
     border-radius: 8px;
     min-height: 60px;
     word-wrap: break-word;
-    border: 1px dashed var(--border);
-    color: var(--text-primary);
-    margin-bottom: 16px;
+    border: 1px dashed #FFD700;
+    color: #FFD700;
+    margin-bottom: 20px;
     font-size: 14px;
 }
 
 .footer {
     text-align: center;
     padding-top: 20px;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid #333;
 }
 
 .footer p {
-    color: var(--text-secondary);
+    color: #666;
     font-size: 0.85em;
 }
 
@@ -256,12 +176,11 @@ button {
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%) translateY(100px);
-    background: var(--bg-tertiary);
-    color: var(--text-primary);
+    background: #FFD700;
+    color: #000000;
     padding: 12px 24px;
     border-radius: 8px;
-    border: 1px solid var(--border);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5);
     font-weight: 600;
     opacity: 0;
     transition: all 0.3s ease;
@@ -273,95 +192,13 @@ button {
     opacity: 1;
 }
 
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.modal-content {
-    background: var(--bg-secondary);
-    padding: 30px;
-    border-radius: 16px;
-    max-width: 500px;
-    width: 90%;
-    border: 1px solid var(--border);
-}
-
-.modal-content h2 {
-    color: var(--accent);
-    margin-bottom: 16px;
-    font-size: 1.5em;
-}
-
-.modal-text {
-    color: var(--text-secondary);
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.code-display, .link-display {
-    margin-bottom: 20px;
-}
-
-.code-box, .link-box {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-
-.code-box span {
-    flex: 1;
-    padding: 12px;
-    background: var(--bg-primary);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    font-family: 'Courier New', monospace;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--accent);
-}
-
-.link-box input {
-    flex: 1;
-    margin: 0;
-}
-
-.code-section {
-    text-align: center;
-}
-
-.timer-display {
-    background: var(--bg-tertiary);
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: 600;
-}
-
-.expired-message {
-    text-align: center;
-    padding: 40px;
-    color: var(--error);
-    font-size: 1.2em;
-}
-
 @media (max-width: 768px) {
     .container {
         padding: 30px 20px;
     }
     
     .header h1 {
-        font-size: 2em;
+        font-size: 2.5em;
     }
     
     .button-group {

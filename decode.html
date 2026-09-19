@@ -8,47 +8,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="theme-toggle">
-        <button id="themeToggle" class="btn-icon">
-            <span id="themeIcon">☀</span>
-        </button>
-    </div>
-
     <div class="container">
         <header class="header">
             <h1>A-K-A</h1>
-            <p class="subtitle">فك تشفير الرسائل</p>
+            <p class="subtitle">فك التشفير</p>
         </header>
 
         <main class="main-content">
-            <div id="codeSection" class="code-section">
-                <label for="accessCodeInput">أدخل كود الوصول</label>
-                <input type="text" id="accessCodeInput" placeholder="الكود المكون من 8 أحرف">
-                <button id="verifyCodeBtn" class="btn-primary">تحقق من الكود</button>
-            </div>
+            <section class="input-section">
+                <label for="inputCipher">الصق الرسالة المشفرة</label>
+                <textarea id="inputCipher" placeholder="الصق الرسالة هنا..."></textarea>
+                <button id="decryptBtn" class="btn-primary">فك التشفير</button>
+            </section>
 
-            <div id="decryptSection" class="decrypt-section hidden">
-                <div id="timerDisplay" class="timer-display hidden">
-                    <span>الوقت المتبقي: </span>
-                    <span id="countdown"></span>
+            <section id="decryptedSection" class="result-section hidden">
+                <label>الرسالة الأصلية</label>
+                <div id="outputDecrypted" class="output-box"></div>
+                
+                <div class="button-group">
+                    <button id="copyDecryptedBtn" class="btn-secondary">نسخ الرسالة</button>
+                    <button id="copyPageLinkBtn" class="btn-secondary">نسخ رابط الصفحة</button>
                 </div>
-
-                <div id="expiredMessage" class="expired-message hidden">
-                    <p>انتهت صلاحية هذه الرسالة</p>
-                </div>
-
-                <div id="decryptContent">
-                    <label>الرسالة الأصلية</label>
-                    <div id="outputDecrypted" class="output-box"></div>
-                    
-                    <div class="button-group">
-                        <button id="copyDecryptedBtn" class="btn-secondary">نسخ الرسالة</button>
-                        <button id="copyPageLinkBtn" class="btn-secondary">نسخ رابط الصفحة</button>
-                    </div>
-                    
-                    <button id="newMessageBtn" class="btn-tertiary">رسالة جديدة</button>
-                </div>
-            </div>
+                
+                <button id="newMessageBtn" class="btn-tertiary">رسالة جديدة</button>
+            </section>
         </main>
 
         <footer class="footer">
